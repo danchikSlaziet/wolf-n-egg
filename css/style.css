@@ -36,7 +36,6 @@ h3 {
 
 .page {
   width: 100%;
-  min-width: 640px;
   min-height: 100%;
   margin: 0 auto -40px;
   text-align: center;
@@ -84,6 +83,7 @@ h3 {
   background: transparent url('../img/game-bg.jpg') center center no-repeat;
   position: relative;
   transform: rotate(90deg);
+  flex-shrink: 0;
 }
 
   /*

@@ -66,7 +66,7 @@ HTMLredraw.prototype.gameWin = function() {
 };
 
 HTMLredraw.prototype.getMessage = function(message) {
-  var data = { h3: message, p: 'Press <b>R</b> to restart' };
+  var data = { h3: message, p: 'Press <b>restart</b> to restart' };
 
   var wrap = document.createElement('div');
   for (var tag in data) {
