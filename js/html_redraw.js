@@ -17,6 +17,7 @@ function HTMLredraw() {
   this.gameWrap = document.querySelector('#game-wrap');
   this.scoreWrap = document.querySelector('#score');
   this.messageWrap = document.querySelector('#message');
+  this.startButton = document.querySelector('.first-page__button');
   this.scoreNums = 4;
 }
 
@@ -52,10 +53,10 @@ HTMLredraw.prototype.updateLossCount = function(data) {
 };
 
 HTMLredraw.prototype.gameOver = function() {
-  var msg = this.getMessage('Game Over');
-
-  this.messageWrap.show();
-  this.messageWrap.appendChild(msg);
+  // var msg = this.getMessage('Game Over');
+  document.querySelector('.final-page').classList.remove('final-page_disabled');
+  // this.messageWrap.show();
+  // this.messageWrap.appendChild(msg);
 };
 
 HTMLredraw.prototype.gameWin = function() {

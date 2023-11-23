@@ -15,7 +15,21 @@
 var GameManager = function() {
   this.init();
   this.setup();
-  this.start();
+  document.querySelector('.first-page__button').addEventListener('click', () => {
+    document.querySelector('.first-page').classList.add('first-page_disabled');
+    this.start();
+  });
+  document.querySelector('.final-page__restart').addEventListener('click', () => {
+    this.reStart();
+  });
+  document.querySelector('.final-page__rating').addEventListener('click', () => {
+    document.querySelector('.final-page').classList.add('final-page_disabled');
+    document.querySelector('.rating-page').classList.remove('rating-page_disabled');
+  });
+  document.querySelector('.rating-page__back').addEventListener('click', () => {
+    document.querySelector('.rating-page').classList.add('rating-page_disabled');
+    document.querySelector('.final-page').classList.remove('final-page_disabled');
+  });
 }
 
 // Initial game settings
