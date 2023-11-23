@@ -1,7 +1,11 @@
 @import '../fonts/fonts.css';
 
 * {
-  margin: 0;
+  margin: 0;    /* Likely future */
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -51,11 +55,17 @@ h3 {
   justify-content: center;
   transform: rotate(90deg);
   /* width: min(96vw,100vh * calc(349 / 238)); */
-  width: min(96vw, 86vh * calc( 238 / 349));
-  height: min(96vw / calc( 349 / 238),40vh);
+  width: min(93vw, 84vh * calc( 238 / 349));
+  height: min(93vw / calc( 349 / 238),39vh);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.page__audiotrack {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
 }
 
 .page__logo {
@@ -123,8 +133,9 @@ h3 {
   background: transparent url('../img/game-bg.jpg') center center no-repeat;
   background-size: 100% 100%;
   position: relative;
-  transform: translateY(3px);
+  transform: translate(.3%,1.4%);
   flex-shrink: 0;
+  border-radius: 4px;
 }
 
   /*
@@ -386,8 +397,9 @@ h3 {
 
   #game-wrap #score {
     position: absolute;
-    top: 48px;
-    left: 326px;
+    top: 3%;
+    left: 32%;
+    transform: scale(.6);
   }
     #game-wrap #score ul {
       margin: 0;
@@ -477,6 +489,7 @@ h3 {
     width: 100px;
     height: 100%;
     position: absolute;
+    display: none;
     top: 0;
     right: -120px;
   }
@@ -529,19 +542,46 @@ h3 {
   	vertical-align: top;
   }
 
+  .controls-arr {
+    position: absolute;
+  }
+  .controls-arr_left-top {
+    top: -17%;
+    left: -10%;
+    width: 5%;
+  }
+  .controls-arr_left-bottom {
+    bottom: -20%;
+    left: -11.4%;
+    width: 6%;
+  }
+  .controls-arr_right-top {
+    top: -16%;
+    right: -10.5%;
+    width: 5%;
+  }
+  .controls-arr_right-bottom {
+    bottom: -18%;
+    right: -12%;
+    width: 6%;
+  }
+
   #controls {
-    width: 147%;
-    height: 155px;
+    width: 134%;
+    height: 45%;
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
     bottom: -8%;
   }
     #controls a {
-      width: 80px;
-      height: 80px;
-      border-radius: 80px;
-      background: transparent url('../img/control-btn.png') center center no-repeat;
+      width: 9%;
+     aspect-ratio: 1 / 1;
+      /* border-radius: 80px; */
+      background-image: url('../img/control-btn.png');
+      /* background: transparent url('../img/control-btn.png') center center no-repeat; */
+      background-repeat: no-repeat;
+      background-size: cover;
       color: #B14426;
       font-size: 16px;
       line-height: 32px;
@@ -552,16 +592,19 @@ h3 {
       overflow: hidden;
     }
     #controls a[data-x="0"] {
-      left: -80px;
+      left: -8%;
     }
     #controls a[data-x="1"] {
-      right: -80px;
+      right: -8%;
     }
     #controls a[data-y="0"] {
       bottom: 0;
     }
     #controls a[data-y="1"] {
       top: 0;
+    }
+    #controls a:active {
+      background-image: url('../img/control-btn-active.png');
     }
 
 /* Mobile devices */
@@ -632,12 +675,12 @@ body.is-mobile {
   .footer {
     margin-top: 20px;
   }
-  #controls a[data-x="0"] {
+  /* #controls a[data-x="0"] {
     left: -34px;
   }
   #controls a[data-x="1"] {
     right: -34px;
-  }
+  } */
 }
 
 
@@ -655,6 +698,7 @@ body.is-mobile {
   justify-content: space-evenly;
   align-items: center;
   z-index: 100;
+  border-radius: 4px;
 }
 
 .first-page_disabled {
@@ -749,6 +793,7 @@ body.is-mobile {
   justify-content: space-evenly;
   align-items: center;
   z-index: 100;
+  border-radius: 4px;
 }
 
 .final-page_disabled {
@@ -846,6 +891,7 @@ body.is-mobile {
   align-items: center;
   overflow: hidden;
   z-index: 100;
+  border-radius: 4px;
 }
 .rating-page_disabled {
   display: none;
@@ -853,7 +899,7 @@ body.is-mobile {
 .rating-page__info {
   height: 100%;
   overflow: hidden;
-  width: 60%;
+  width: 65%;
   box-sizing: border-box;
   padding-top: 15px;
   padding-left: 10px;
@@ -936,8 +982,34 @@ body.is-mobile {
   margin-left: auto;
 }
 .rating-page__img {
-  width: 30%;
+  width: 33%;
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.console-buttons {
+  position: absolute;
+  z-index: 100;
+  top: -10%;
+  right: -26%;
+}
+.console-button-wrapper {
+}
+
+.console-button-wrapper:not(:last-child) {
+  margin-bottom: 18px;
+}
+.console-buttons__img {
+  width: calc(3vw + 3vh);
+}
+.console-buttons__text {
+  color: #282723;
+  text-align: center;
+  font-family: "Rubik";
+  /* font-size: 11px; */
+  font-size: calc(1vw + 1vh);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }

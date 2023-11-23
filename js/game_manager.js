@@ -15,6 +15,7 @@
 var GameManager = function() {
   this.init();
   this.setup();
+  this.audio = document.querySelector('.page__audiotrack');
   document.querySelector('.first-page__button').addEventListener('click', () => {
     document.querySelector('.first-page').classList.add('first-page_disabled');
     this.start();
@@ -29,6 +30,25 @@ var GameManager = function() {
   document.querySelector('.rating-page__back').addEventListener('click', () => {
     document.querySelector('.rating-page').classList.add('rating-page_disabled');
     document.querySelector('.final-page').classList.remove('final-page_disabled');
+  });
+  document.querySelectorAll('.console-buttons__img').forEach((button) => {
+    button.addEventListener('touchstart', () => {
+      button.src = './img/button-ellipse-active.png';
+    });
+    button.addEventListener('touchend', () => {
+      button.src = './img/button-ellipse.png';
+    });
+  });
+  document.querySelector('.console-buttons__img_game').addEventListener('click', () => {
+    this.reStart();
+  });
+  document.querySelector('.console-buttons__img_sound').addEventListener('click', () => {
+    if (this.audio.paused) {
+      this.audio.play();
+    }
+    else {
+      this.audio.pause();
+    }
   });
 }
 

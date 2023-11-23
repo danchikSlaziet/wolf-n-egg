@@ -1,17 +1,3 @@
-/*
- *  "Catch the Egg" JavaScript Game
- *  source code  : https://github.com/shtange/catch-the-egg
- *  play it here : https://shtange.github.io/catch-the-egg/
- *
- *  Copyright 2015, Yurii Shtanhei
- *  GitHub : https://github.com/shtange/
- *  Habr   : https://habrahabr.ru/users/shtange/
- *  email  : y.shtanhei@gmail.com
- *
- *  Licensed under the MIT license:
- *  http://www.opensource.org/licenses/MIT
- */
-
 function HTMLredraw() {
   this.bodyWrap = document.querySelector('body');
   this.gameWrap = document.querySelector('#game-wrap');
@@ -54,9 +40,9 @@ HTMLredraw.prototype.updateLossCount = function(data) {
 
 HTMLredraw.prototype.gameOver = function() {
   // var msg = this.getMessage('Game Over');
-  document.querySelector('.final-page').classList.remove('final-page_disabled');
   // this.messageWrap.show();
   // this.messageWrap.appendChild(msg);
+  document.querySelector('.final-page').classList.remove('final-page_disabled');
 };
 
 HTMLredraw.prototype.gameWin = function() {

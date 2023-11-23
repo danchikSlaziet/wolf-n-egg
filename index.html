@@ -4,12 +4,22 @@
   <meta charset="utf-8">
   <title>Catch the Egg | Ну, погоди!</title>
   <link rel="stylesheet" href="css/style.css">
-  <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 </head>
 <body>
   <div class="page">
+    <audio src="./audio/soundtrack.mp3" class="page__audiotrack" loop autoplay></audio>
     <img class="page__logo" src="./img/tnt.png" alt="tnt тнт телеканал">
+    <div class="console-buttons">
+      <div class="console-button-wrapper">
+        <img class="console-buttons__img console-buttons__img_game" src="./img/button-ellipse.png" alt="button console">
+        <p class="console-buttons__text">Игра</p>
+      </div>
+      <div class="console-button-wrapper">
+        <img class="console-buttons__img console-buttons__img_sound" src="./img/button-ellipse.png" alt="button console">
+        <p class="console-buttons__text">Звук</p>
+      </div>
+    </div>
     <div class="page__console-bg">
       <img class="page__console-img" src="./img/Static.png" alt="">
     </div>
@@ -183,6 +193,10 @@
         <a href="/" class="restart-game">Restart</a>
       </div>
       <div id="controls">
+        <img class="controls-arr controls-arr_left-top" src="./img/arrow-top-left.svg" alt="arrow">
+        <img class="controls-arr controls-arr_left-bottom" src="./img/arrow-bottom-left.svg" alt="arrow">
+        <img class="controls-arr controls-arr_right-top" src="./img/arrow-top-right.svg" alt="arrow">
+        <img class="controls-arr controls-arr_right-bottom" src="./img/arrow-bottom-right.svg" alt="arrow">
         <a href="#top-left" data-x="0" data-y="1">Q</a>
         <a href="#bottom-left" data-x="0" data-y="0">A</a>
         <a href="#top-right" data-x="1" data-y="1">E</a>
