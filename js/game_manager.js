@@ -195,6 +195,7 @@ GameManager.prototype.updateScore = function (data) {
     this.HTMLredraw.updateLossCount({ loss: this.loss });
     if (this.loss > 2 && !this.over) {
       this.gameOver();
+      window.finallyScore = this.score;
     }
   }
 };
