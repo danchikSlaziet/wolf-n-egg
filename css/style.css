@@ -721,8 +721,6 @@ body.is-mobile {
   align-items: center;
   z-index: 100;
   border-radius: 4px;
-
-  /* opacity: 0; */
 }
 
 .first-page_disabled {
@@ -818,9 +816,6 @@ body.is-mobile {
   align-items: center;
   z-index: 100;
   border-radius: 4px;
-
-
-  opacity: 0;
 }
 
 .final-page_disabled {
