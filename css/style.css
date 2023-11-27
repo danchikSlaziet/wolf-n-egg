@@ -68,6 +68,12 @@ h3 {
   display: none;
 }
 
+.page__bell-track {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
 .page__logo {
   position: absolute;
   top: -16%;
@@ -169,6 +175,39 @@ h3 {
       right: 26.0%;
       bottom: 11%;
     }
+
+
+  /*  
+  * Bell 
+  */
+  .bell {
+    position: absolute;
+    display: none;
+    background-image: url(../img/bell1.svg);
+    width: 15%;
+    height: 12%;
+    left: 17%;
+    top: 20%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .bell_top {
+    left: 17%;
+    top: 20%;
+    transform: rotate(0);
+  }
+
+  .bell_bottom {
+    left: 15.9%;
+    top: 26.1%;
+    transform: rotate(31deg);
+  }
+
+  .bell_active {
+    display: block;
+  }
 
   /*
    * Wolf
@@ -419,8 +458,10 @@ h3 {
 
   #game-wrap #score {
     position: absolute;
-    top: 15%;
-    left: 46%;
+    top: 9%;
+    left: 36%;
+    width: 60%;
+    height: 13%;
     transform: scale(0.3);
   }
     #game-wrap #score ul {
@@ -961,6 +1002,8 @@ body.is-mobile {
 }
 .list-wrapper::-webkit-scrollbar {width: 3px; background-color: #546264;}
 .list-wrapper::-webkit-scrollbar-thumb {border-radius: 0px;background: #B02626;}
+::-webkit-scrollbar {width: 3px; background-color: #546264;}
+::-webkit-scrollbar-thumb {border-radius: 0px;background: #B02626;}
 
 .rating-page__user {
   width: 100%;

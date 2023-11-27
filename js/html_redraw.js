@@ -62,6 +62,48 @@ HTMLredraw.prototype.updateScore = function (data) {
     var num = (i < empty) ? 0 : parseInt(score.charAt(i - empty));
     elements[i].className = 'n-' + num;
   }
+
+  function activeBell() {
+    document.querySelector('.page__bell-track').currentTime = 0;
+    document.querySelector('.page__bell-track').play();
+    document.querySelector('.bell').classList.add('bell_active');
+    setInterval(() => {
+      document.querySelector('.bell').classList.remove('bell_bottom');
+      document.querySelector('.bell').classList.add('bell_top');
+      setTimeout(() => {
+        document.querySelector('.bell').classList.remove('bell_top');
+        document.querySelector('.bell').classList.add('bell_bottom');
+      }, 70)
+    }, 300)
+    setTimeout(() => {
+      document.querySelector('.bell').classList.remove('bell_active');
+      document.querySelector('.page__bell-track').pause();
+    }, 2000);
+  }
+  if (score === "4") {
+    activeBell();
+  }
+  if (score === "10") {
+    activeBell();
+  }
+  if (score === "24") {
+    activeBell();
+  }
+  if (score === "40") {
+    activeBell();
+  }
+  if (score === "50") {
+    activeBell();
+  }
+  if (score === "60") {
+    activeBell();
+  }
+  if (score === "100") {
+    activeBell();
+  }
+  if (score === "200") {
+    activeBell();
+  }
 };
 
 HTMLredraw.prototype.updateLossCount = function (data) {

@@ -39,6 +39,14 @@ var GameManager = function() {
       button.src = './img/button-ellipse.png';
     });
   });
+  document.querySelectorAll('.controls-btn').forEach((button) => {
+    button.addEventListener('touchstart', (evt) => {
+      button.style = 'background-image: url(./img/control-btn-active.png)';
+    });
+    button.addEventListener('touchend', (evt) => {
+      button.style = 'background-image: url(./img/control-btn.png)';
+    })
+  });
   document.querySelector('.console-buttons__img_game').addEventListener('click', () => {
     this.reStart();
   });
@@ -162,11 +170,29 @@ GameManager.prototype.upLevel = function () {
   this.level++;
 
   switch (true) {
-    case (this.level < 8):
-      this.speed += -50;
+    case (this.level === 2):
+      this.speed = 700;
       break;
-    case (this.level > 19):
-      this.speed += 0;
+    case (this.level === 3):
+      this.speed = 600;
+      break;
+    case (this.level === 4):
+      this.speed = 500;
+      break;
+    case (this.level === 5):
+      this.speed = 450;
+      break;
+    case (this.level === 6):
+      this.speed = 400;
+      break;
+    case (this.level === 7):
+      this.speed = 300;
+      break;
+    case (this.level === 8):
+      this.speed = 250;
+      break;
+    case (this.level === 9):
+      this.speed = 200;
       break;
     default:
       this.speed += -25;
@@ -187,7 +213,28 @@ GameManager.prototype.updateScore = function (data) {
       return false;
     }
 
-    if (!(this.score % 50)) {
+    if (this.score === 4) {
+      this.upLevel();
+    }
+    if (this.score === 10) {
+      this.upLevel();
+    }
+    if (this.score === 24) {
+      this.upLevel();
+    }
+    if (this.score === 40) {
+      this.upLevel();
+    }
+    if (this.score === 50) {
+      this.upLevel();
+    }
+    if (this.score === 60) {
+      this.upLevel();
+    }
+    if (this.score === 100) {
+      this.upLevel();
+    }
+    if (this.score === 200) {
       this.upLevel();
     }
   } else {
