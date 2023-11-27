@@ -21,6 +21,12 @@ function HTMLredraw() {
     return query;
   }
   window.addEventListener('DOMContentLoaded', () => {
+    let detect = new MobileDetect(window.navigator.userAgent);
+    if (detect.os() === null) {
+      document.querySelector('.page__is-pc').style.display = 'flex';
+      console.log('PC');
+    }
+
     let app = window.Telegram.WebApp;
     let query = app.initData;
     let user_data_str = parseQuery(query).user;

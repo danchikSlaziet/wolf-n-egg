@@ -1035,3 +1035,28 @@ body.is-mobile {
   font-weight: 600;
   line-height: normal;
 }
+
+.page__is-pc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+  display: none;
+  color: #FFF;
+  background-color: #B3D7DC;
+  padding: 100px;
+}
+
+.page__is-pc-text {
+ margin: 0;
+ font-size: 30px;
+ text-transform: uppercase;
+ line-height: 1.2;
+ text-align: center;
+ font-weight: 600;
+}
