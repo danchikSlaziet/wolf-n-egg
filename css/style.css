@@ -8,6 +8,10 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+button {
+  font-family: 'Rubik';
+}
+
 
 body {
   margin: 0;
@@ -139,7 +143,7 @@ h3 {
   background: transparent url('../img/game-bg.svg') center center no-repeat;
   background-size: 100% 100%;
   position: relative;
-  transform: translate(.3%,1.4%);
+  transform: translate(.15%,1.4%);
   flex-shrink: 0;
   border-radius: 4px;
 }
@@ -220,8 +224,8 @@ h3 {
   }
     #game-wrap[data-bx="0"] .wolf {
       width: 46%;
-      height: 60%;
-      top: 34%;
+      height: 55.1%;
+      top: 38.1%;
       left: 17.9%;
       background-image: url(../img/hena-left.svg);
       /* background: transparent url('../img/wolf/wolf-p-0.png') center center no-repeat; */
@@ -797,20 +801,52 @@ body.is-mobile {
 .first-page__button {
   border: none;
   color: #FFF;
-  margin: 0;
   padding: 11px 0;
   background-color: #B02626;
   padding: 11px 0;
   width: 50%;
+  -webkit-box-shadow: 4px 4px 0px 0px #546264;
+  -moz-box-shadow: 4px 4px 0px 0px #546264;
+  box-shadow: 4px 4px 0px 0px #546264;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.first-page__button-text {
+  font-family: 'Rubik';
+  margin: 0;
   text-align: center;
   font-size: calc(2vw + 2vh);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   text-transform: uppercase;
-  -webkit-box-shadow: 4px 4px 0px 0px #546264;
-  -moz-box-shadow: 4px 4px 0px 0px #546264;
-  box-shadow: 4px 4px 0px 0px #546264;
+}
+.first-page__button-img-block {
+  position: relative;
+  width: 18%;
+}
+.first-page__button-heart {
+  display: block;
+  aspect-ratio: 62 / 56;
+  width: 100%;
+}
+.first-page__button-count {
+  position: absolute;
+  padding-bottom: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #B02626;
+  text-align: center;
+  font-family: "Rubik";
+  font-size: calc(1.2vw + 1.2vh);
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
 }
 
 .first-page__top-left {
@@ -892,19 +928,51 @@ body.is-mobile {
   color: #FFF;
   background-color: #B02626;
   padding: 11px 0;
-  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  -webkit-box-shadow: 4px 4px 0px 0px #546264;
+  -moz-box-shadow: 4px 4px 0px 0px #546264;
+  box-shadow: 4px 4px 0px 0px #546264;
+  margin: 0;
+  padding: 6px;
+  width: 80%;
+}
+
+.final-page__button-text {
+  font-family: 'Rubik';
+  margin: 0;
   text-align: center;
   font-size: calc(2vw + 2vh);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   text-transform: uppercase;
-  -webkit-box-shadow: 4px 4px 0px 0px #546264;
-  -moz-box-shadow: 4px 4px 0px 0px #546264;
-  box-shadow: 4px 4px 0px 0px #546264;
-  margin: 0;
-  padding: 11px;
-  width: 80%;
+}
+.final-page__button-img-block {
+  position: relative;
+  width: 18%;
+}
+.final-page__button-heart {
+  display: block;
+  aspect-ratio: 62 / 56;
+  width: 100%;
+}
+.final-page__button-count {
+  padding-bottom: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #B02626;
+  text-align: center;
+  font-family: "Rubik";
+  font-size: calc(1.2vw + 1.2vh);
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
 }
 .final-page__rating {
   border: none;
@@ -1057,7 +1125,7 @@ body.is-mobile {
   position: absolute;
   z-index: 100;
   top: -10%;
-  right: -26%;
+  right: -28%;
 }
 .console-button-wrapper {
 }

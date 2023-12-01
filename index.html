@@ -13,12 +13,12 @@
   </div>
   <div class="page">
     <audio src="./audio/soundtrack.mp3" class="page__audiotrack" loop></audio>
-    <audio src="./audio/bell-audio.mp3" class="page__bell-track" loop></audio>
+    <audio src="./audio/bell-audio.mp3" class="page__bell-track" muted loop></audio>
     <img class="page__logo" src="./img/tnt.png" alt="tnt тнт телеканал">
     <div class="console-buttons">
       <div class="console-button-wrapper">
         <img class="console-buttons__img console-buttons__img_game" src="./img/button-ellipse.png" alt="button console">
-        <p class="console-buttons__text">Игра</p>
+        <p class="console-buttons__text">Заново</p>
       </div>
       <div class="console-button-wrapper">
         <img class="console-buttons__img console-buttons__img_sound" src="./img/button-ellipse.png" alt="button console">
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="page__console-bg">
-      <img class="page__console-img" src="./img/Static.png" alt="">
+      <img class="page__console-img" src="./img/console.png" alt="">
     </div>
     <div id="game-wrap" data-bx="0" data-by="1" data-egg-0="0" data-egg-1="0" data-egg-2="0" data-egg-3="0" data-loss="0">
       <div class="first-page">
@@ -39,10 +39,15 @@
           Гена ловит обувь
         </h1>
         <p class="first-page__text">
-          Lorem ipsum dolor sit amet consectetur. Nunc massa enim.
+          Помоги ему: копи очки 
+          и&nbsp;попади в&nbsp;топ
         </p>
         <button class="first-page__button" type="button">
-          Играть
+          <span class="first-page__button-text">Играть</span>
+          <div class="first-page__button-img-block">
+            <img class="first-page__button-heart" src="./img/heart.svg" alt="red heart">
+            <p class="first-page__button-count">10</p>
+          </div>
         </button>
       </div>
       <div class="final-page final-page_disabled">
@@ -53,7 +58,11 @@
             Игра закончена
           </p>
           <button class="final-page__restart" type="button">
-            Играть еще раз
+            <span class="final-page__button-text">еще раз</span>
+            <div class="final-page__button-img-block">
+              <img class="final-page__button-heart" src="./img/heart.svg" alt="red heart">
+              <p class="final-page__button-count">10</p>
+            </div>
           </button>
           <button class="final-page__rating" type="button">
             Рейтинг

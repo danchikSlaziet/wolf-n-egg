@@ -64,21 +64,39 @@ HTMLredraw.prototype.updateScore = function (data) {
   }
 
   function activeBell() {
-    document.querySelector('.page__bell-track').currentTime = 0;
-    document.querySelector('.page__bell-track').play();
-    document.querySelector('.bell').classList.add('bell_active');
-    setInterval(() => {
-      document.querySelector('.bell').classList.remove('bell_bottom');
-      document.querySelector('.bell').classList.add('bell_top');
+    if (!window.isGameOver) {
+      document.querySelector('.page__bell-track').currentTime = 0;
+      document.querySelector('.page__bell-track').play();
+      document.querySelector('.bell').classList.add('bell_active');
+  
+      // Сохраняем идентификаторы интервала и таймаута
+      const intervalIds = [];
+      const timeoutIds = [];
+  
+      const intervalId = setInterval(() => {
+        document.querySelector('.bell').classList.remove('bell_bottom');
+        document.querySelector('.bell').classList.add('bell_top');
+        const timeoutId = setTimeout(() => {
+          document.querySelector('.bell').classList.remove('bell_top');
+          document.querySelector('.bell').classList.add('bell_bottom');
+        }, 70);
+        // Сохраняем идентификатор таймаута
+        timeoutIds.push(timeoutId);
+      }, 300);
+  
+      // Сохраняем идентификатор интервала
+      intervalIds.push(intervalId);
+  
       setTimeout(() => {
-        document.querySelector('.bell').classList.remove('bell_top');
-        document.querySelector('.bell').classList.add('bell_bottom');
-      }, 70)
-    }, 300)
-    setTimeout(() => {
-      document.querySelector('.bell').classList.remove('bell_active');
-      document.querySelector('.page__bell-track').pause();
-    }, 2000);
+        // Очищаем все интервалы
+        intervalIds.forEach(clearInterval);
+        // Очищаем все таймауты
+        timeoutIds.forEach(clearTimeout);
+  
+        document.querySelector('.bell').classList.remove('bell_active');
+        document.querySelector('.page__bell-track').pause();
+      }, 2000);
+    }
   }
   if (score === "4") {
     activeBell();
@@ -145,22 +163,9 @@ HTMLredraw.prototype.gameOver = function () {
       console.error('Ошибка:', error);
     }
   }
-  sendMessage(`Поздравляю тебя, ты поймал ${window.finallyScore} штук обуви! 
-  Лови вкусный подарочек от Гены Букина!!!!
-  
-  ⠀⠀⣴⡾⠿⣿⣿⣿⣶⣤⡀
-  ⠀⣼⣿⣦⣤⣿⣿⣿⣿⣿⣿⣷⣤⡀
-  ⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀
-  ⠐⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷
-  ⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃
-  ⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣣⣾
-  ⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⣩⣾⡿⢃⣼⣦⡀
-  ⠀⠀⠈⠻⣿⣿⣿⣿⠿⢟⣩⣴⣿⡿⢋⣴⣿⣿⣿⣿⣆
-  ⠀⠀⠀⠀⠀⠀⢴⣶⣾⣿⠿⢛⣡⣶⣿⣿⣿⣿⣿⣿⣿⣷⣄
-  ⠀⠀⠀⠀⠀⠀⠀⠉⠩⣴⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄
+  sendMessage(`Поздравляем!🎉🎉🎉 Твой результат: ${window.finallyScore} 👠
 
-  Больше мне добавить нечего. Лучше займись чем-нибудь полезным, а то сидишь и играешь в какую-то xyе*у))`);
-
+  Играй каждый день, копи очки и попадай в самый верх рейтинга! ТОП-200 лучших игроков ждут культовые футболки из сериала😏`);
 };
 
 HTMLredraw.prototype.gameWin = function () {

@@ -16,10 +16,12 @@ var GameManager = function() {
   this.init();
   this.setup();
   this.audio = document.querySelector('.page__audiotrack');
+  this.bellAudio = document.querySelector('.page__bell-track');
   document.querySelector('.first-page__button').addEventListener('click', () => {
     document.querySelector('.first-page').classList.add('first-page_disabled');
     this.start();
   });
+  window.isGameOver = false;
   document.querySelector('.final-page__restart').addEventListener('click', () => {
     this.reStart();
   });
@@ -53,9 +55,11 @@ var GameManager = function() {
   document.querySelector('.console-buttons__img_sound').addEventListener('click', () => {
     if (this.audio.paused) {
       this.audio.play();
+      this.bellAudio.muted = false;
     }
     else {
       this.audio.pause();
+      this.bellAudio.muted = true;
     }
   });
 }
@@ -267,6 +271,7 @@ GameManager.prototype.runEgg = function(chicken) {
 GameManager.prototype.gameOver = function() {
   this.haltGear();
   this.HTMLredraw.gameOver();
+  window.isGameOver = true;
 };
 
 GameManager.prototype.gameWin = function() {
