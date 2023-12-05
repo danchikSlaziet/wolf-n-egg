@@ -39,105 +39,12 @@ function HTMLredraw() {
       .then(data => console.log(data))
       .catch(err => console.log(err));
     window.api.getTries(window.userChatId)
-      .then(data => console.log(data))
+      .then((data) => {
+        console.log(data);
+        document.querySelector('.first-page__button-count').textContent = data;
+      })
       .catch(err => console.log(err))
   });
-
-  // class Api {
-  //   constructor({baseUrl, secondUrl, thirdUrl, fourthUrl}) {
-  //     this._baseUrl = baseUrl;
-  //     this._secondUrl = secondUrl;
-  //     this._thirdUrl = thirdUrl;
-  //     this._fourthUrl = fourthUrl;
-  //   }
-  
-  //   _getFetch(url, options) {
-  //     return fetch(url, options)
-  //       .then(res => {
-  //         if (res.ok) {
-  //           return res.json();
-  //         }
-  //         return Promise.reject(`Ошибка ${res.status}`)
-  //       });
-  //   }
-  
-  //   sendStatistics(name, id) {
-  //     const url = this._baseUrl + `?name=${name}&user_id=${id}`;
-  //     const options = {
-  //       method: 'POST',
-  //       mode: 'cors',
-  //       cache: 'no-cache',
-  //       credentials: 'same-origin',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       redirect: 'follow',
-  //       referrerPolicy: 'no-referrer',
-  //       body: '',
-  //     }
-  //     return this._getFetch(url, options);
-  //   }
-  
-  //   getTries(id) {
-  //     const url = this._secondUrl + `?user_id=${id}`;
-  //     const options = {
-  //       method: 'GET',
-  //       mode: 'cors',
-  //       cache: 'no-cache',
-  //       credentials: 'same-origin',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       redirect: 'follow',
-  //       referrerPolicy: 'no-referrer',
-  //     }
-  //     return this._getFetch(url, options);
-  //   }
-  
-  //   postNumber(id, number) {
-  //     const params = {
-  //       "id": id,
-  //       "number": number
-  //     }
-  //     const url = this._fourthUrl;
-  //     const options = {
-  //       method: 'POST',
-  //       mode: 'cors',
-  //       cache: 'no-cache',
-  //       credentials: 'same-origin',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       redirect: 'follow',
-  //       referrerPolicy: 'no-referrer',
-  //       body: JSON.stringify(params)
-  //     }
-  //     return this._getFetch(url, options);
-  //   }
-  
-  //   getNumber(id) {
-  //     const url = this._thirdUrl + `?id=${id}`;
-  //     const options = {
-  //       method: 'GET',
-  //       mode: 'cors',
-  //       cache: 'no-cache',
-  //       credentials: 'same-origin',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       redirect: 'follow',
-  //       referrerPolicy: 'no-referrer',
-  //     }
-  //     return this._getFetch(url, options);
-  //   }
-  // }
-  
-  // const api = new Api({
-  //   baseUrl: 'https://bukin.ilovebot.ru/api/statistics/',
-  //   secondUrl: 'https://bukin.ilovebot.ru/api/user_tokens/',
-  //   thirdUrl: 'https://bukin.ilovebot.ru/api/append_score/',
-  //   fourthUrl: 'https://bukin.ilovebot.ru/api/rating/'
-  // });
 }
 
 HTMLredraw.prototype.updateEggPosition = function (data) {
@@ -232,9 +139,13 @@ HTMLredraw.prototype.updateLossCount = function (data) {
 };
 
 HTMLredraw.prototype.gameOver = function () {
-  // var msg = this.getMessage('Game Over');
-  // this.messageWrap.show();
-  // this.messageWrap.appendChild(msg);
+  window.api.postTries(window.userChatId)
+    .then((data) => {
+      console.log(data);
+      document.querySelector('.final-page__button-count').textContent = data;
+      document.querySelector('.first-page__button-count').textContent = data;
+    })
+    .catch(err => console.log(err));
   document.querySelector('.final-page').classList.remove('final-page_disabled');
 
   async function sendMessage(text) {

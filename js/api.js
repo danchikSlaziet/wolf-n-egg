@@ -49,12 +49,8 @@ class Api {
     return this._getFetch(url, options);
   }
 
-  postNumber(id, number) {
-    const params = {
-      "id": id,
-      "number": number
-    }
-    const url = this._fourthUrl;
+  postTries(id) {
+    const url = this._secondUrl + `?user_id=${id}`;
     const options = {
       method: 'POST',
       mode: 'cors',
@@ -65,7 +61,7 @@ class Api {
       },
       redirect: 'follow',
       referrerPolicy: 'no-referrer',
-      body: JSON.stringify(params)
+      body: ''
     }
     return this._getFetch(url, options);
   }
