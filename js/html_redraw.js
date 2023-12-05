@@ -35,109 +35,109 @@ function HTMLredraw() {
     app.ready();
     window.userChatId = user_data["id"];
     console.log(window.userChatId);
-    api.sendStatistics('открытие приложения', window.userChatId)
+    window.api.sendStatistics('открытие приложения', window.userChatId)
       .then(data => console.log(data))
       .catch(err => console.log(err));
-    api.getTries(window.userChatId)
+    window.api.getTries(window.userChatId)
       .then(data => console.log(data))
       .catch(err => console.log(err))
   });
 
-  class Api {
-    constructor({baseUrl, secondUrl, thirdUrl, fourthUrl}) {
-      this._baseUrl = baseUrl;
-      this._secondUrl = secondUrl;
-      this._thirdUrl = thirdUrl;
-      this._fourthUrl = fourthUrl;
-    }
+  // class Api {
+  //   constructor({baseUrl, secondUrl, thirdUrl, fourthUrl}) {
+  //     this._baseUrl = baseUrl;
+  //     this._secondUrl = secondUrl;
+  //     this._thirdUrl = thirdUrl;
+  //     this._fourthUrl = fourthUrl;
+  //   }
   
-    _getFetch(url, options) {
-      return fetch(url, options)
-        .then(res => {
-          if (res.ok) {
-            return res.json();
-          }
-          return Promise.reject(`Ошибка ${res.status}`)
-        });
-    }
+  //   _getFetch(url, options) {
+  //     return fetch(url, options)
+  //       .then(res => {
+  //         if (res.ok) {
+  //           return res.json();
+  //         }
+  //         return Promise.reject(`Ошибка ${res.status}`)
+  //       });
+  //   }
   
-    sendStatistics(name, id) {
-      const url = this._baseUrl + `?name=${name}&user_id=${id}`;
-      const options = {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: '',
-      }
-      return this._getFetch(url, options);
-    }
+  //   sendStatistics(name, id) {
+  //     const url = this._baseUrl + `?name=${name}&user_id=${id}`;
+  //     const options = {
+  //       method: 'POST',
+  //       mode: 'cors',
+  //       cache: 'no-cache',
+  //       credentials: 'same-origin',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       redirect: 'follow',
+  //       referrerPolicy: 'no-referrer',
+  //       body: '',
+  //     }
+  //     return this._getFetch(url, options);
+  //   }
   
-    getTries(id) {
-      const url = this._secondUrl + `?user_id=${id}`;
-      const options = {
-        method: 'GET',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-      }
-      return this._getFetch(url, options);
-    }
+  //   getTries(id) {
+  //     const url = this._secondUrl + `?user_id=${id}`;
+  //     const options = {
+  //       method: 'GET',
+  //       mode: 'cors',
+  //       cache: 'no-cache',
+  //       credentials: 'same-origin',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       redirect: 'follow',
+  //       referrerPolicy: 'no-referrer',
+  //     }
+  //     return this._getFetch(url, options);
+  //   }
   
-    postNumber(id, number) {
-      const params = {
-        "id": id,
-        "number": number
-      }
-      const url = this._fourthUrl;
-      const options = {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: JSON.stringify(params)
-      }
-      return this._getFetch(url, options);
-    }
+  //   postNumber(id, number) {
+  //     const params = {
+  //       "id": id,
+  //       "number": number
+  //     }
+  //     const url = this._fourthUrl;
+  //     const options = {
+  //       method: 'POST',
+  //       mode: 'cors',
+  //       cache: 'no-cache',
+  //       credentials: 'same-origin',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       redirect: 'follow',
+  //       referrerPolicy: 'no-referrer',
+  //       body: JSON.stringify(params)
+  //     }
+  //     return this._getFetch(url, options);
+  //   }
   
-    getNumber(id) {
-      const url = this._thirdUrl + `?id=${id}`;
-      const options = {
-        method: 'GET',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-      }
-      return this._getFetch(url, options);
-    }
-  }
+  //   getNumber(id) {
+  //     const url = this._thirdUrl + `?id=${id}`;
+  //     const options = {
+  //       method: 'GET',
+  //       mode: 'cors',
+  //       cache: 'no-cache',
+  //       credentials: 'same-origin',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       redirect: 'follow',
+  //       referrerPolicy: 'no-referrer',
+  //     }
+  //     return this._getFetch(url, options);
+  //   }
+  // }
   
-  const api = new Api({
-    baseUrl: 'https://bukin.ilovebot.ru/api/statistics/',
-    secondUrl: 'https://bukin.ilovebot.ru/api/user_tokens/',
-    thirdUrl: 'https://bukin.ilovebot.ru/api/append_score/',
-    fourthUrl: 'https://bukin.ilovebot.ru/api/rating/'
-  });
+  // const api = new Api({
+  //   baseUrl: 'https://bukin.ilovebot.ru/api/statistics/',
+  //   secondUrl: 'https://bukin.ilovebot.ru/api/user_tokens/',
+  //   thirdUrl: 'https://bukin.ilovebot.ru/api/append_score/',
+  //   fourthUrl: 'https://bukin.ilovebot.ru/api/rating/'
+  // });
 }
 
 HTMLredraw.prototype.updateEggPosition = function (data) {
