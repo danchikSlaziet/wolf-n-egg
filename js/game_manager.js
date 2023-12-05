@@ -210,6 +210,7 @@ GameManager.prototype.upLevel = function () {
 GameManager.prototype.updateScore = function (data) {
   if (this.grid.list[data.egg].x == this.basket.x && this.grid.list[data.egg].y == this.basket.y) {
     this.score += this.point;
+    console.log(this, this.score)
     this.HTMLredraw.updateScore({ value: this.score });
 
     if (this.score >= 1000) {
