@@ -38,6 +38,9 @@ function HTMLredraw() {
     api.sendStatistics('открытие приложения', window.userChatId)
       .then(data => console.log(data))
       .catch(err => console.log(err));
+    api.getTries(window.userChatId)
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
   });
 
   class Api {
@@ -75,14 +78,10 @@ function HTMLredraw() {
       return this._getFetch(url, options);
     }
   
-    sendFileId(id, fileId) {
-      const params = {
-        "id": id,
-        "file_id": fileId
-      }
-      const url = this._secondUrl;
+    getTries(id) {
+      const url = this._secondUrl + `?user_id=${id}`;
       const options = {
-        method: 'POST',
+        method: 'GET',
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'same-origin',
@@ -91,7 +90,7 @@ function HTMLredraw() {
         },
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
-        body: JSON.stringify(params)
+        body: ''
       }
       return this._getFetch(url, options);
     }
