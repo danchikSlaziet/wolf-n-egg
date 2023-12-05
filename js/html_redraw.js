@@ -151,8 +151,8 @@ HTMLredraw.prototype.gameOver = function () {
         document.querySelector('.rating-page__rating').innerHTML += `
         <li class="rating-page__user">
           <span class="rating-page__number">${index + 1}</span>
-          <span class="rating-page__name">${data["rating"]?.["first_name"]} ${data["rating"]?.["last_name"]}</span>
-          <span class="rating-page__count">${data["rating"]?.["score"]}</span>
+          <span class="rating-page__name">${elem["first_name"]} ${elem?.["last_name"]}</span>
+          <span class="rating-page__count">${elem["score"]}</span>
         </li>
         `
       });
