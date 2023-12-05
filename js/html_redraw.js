@@ -67,6 +67,7 @@ function HTMLredraw() {
         },
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
+        body: {},
       }
       return this._getFetch(url, options);
     }
