@@ -36,12 +36,15 @@ function HTMLredraw() {
     app.ready();
     window.userChatId = user_data["id"];
     console.log(window.userChatId);
-    window.api.sendStatistics('открытие приложения', window.userData)
+    window.api.sendStatistics('открытие приложения/переход на начальный экран', window.userData)
       .then(data => console.log(data))
       .catch(err => console.log(err));
     window.api.getTries(window.userChatId)
       .then((data) => {
         console.log(data);
+        if (data.trim() <= 0) {
+          document.querySelector('.refer-page').classList.remove('.refer-page_disabled');
+        }
         document.querySelector('.first-page__button-count').textContent = data;
       })
       .catch(err => console.log(err))

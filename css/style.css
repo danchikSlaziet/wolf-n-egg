@@ -878,6 +878,110 @@ body.is-mobile {
   pointer-events: none;
 }
 
+.refer-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #B3D7DC;
+  background-image: url(../img/first-page-bg.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 100000;
+  border-radius: 4px;
+}
+
+.refer-page_disabled {
+  display: none;
+}
+
+.refer-page__content {
+  background-image: url(../img/final-page-bg.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 86%;
+  width: 90%;
+}
+
+.refer-page__button {
+  border: none;
+  color: #FFF;
+  background-color: #546264;;
+  padding: 7px 4px;
+  width: 85%;
+  -webkit-box-shadow: 4px 4px 0px 0px #B02626;
+  -moz-box-shadow: 4px 4px 0px 0px #B02626;
+  box-shadow: 4px 4px 0px 0px #B02626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.refer-page__button-text {
+  font-family: 'Rubik';
+  margin: 0;
+  text-align: center;
+  font-size: calc(1.2vw + 1.5vh);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.refer-page__button-img-block {
+  position: relative;
+  width: 18%;
+}
+.refer-page__button-heart {
+  display: block;
+  aspect-ratio: 62 / 56;
+  width: 100%;
+}
+.refer-page__button-count {
+  position: absolute;
+  padding-bottom: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #B02626;
+  text-align: center;
+  font-family: "Rubik";
+  font-size: calc(1.4vw + 1.4vh);
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.refer-page__title {
+  color: #FFF;
+  text-align: center;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+  font-family: "Rubik";
+  font-size: calc(2vw + 2vh);
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.refer-page__subtitle {
+  color: #FFF;
+  text-align: center;
+  font-family: "Rubik";
+  font-size: calc(1.5vw + 1.5vh);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
 .final-page {
   position: absolute;
   top: 0;
