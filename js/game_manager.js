@@ -23,6 +23,13 @@ var GameManager = function() {
     window.api.sendStatistics('нажатие на кнопку ИГРАТЬ', window.userChatId)
       .then(data => console.log(data))
       .catch(err => console.log(err));
+    window.api.postTries(window.userChatId)
+      .then((data) => {
+        console.log(data);
+        document.querySelector('.final-page__button-count').textContent = data;
+        document.querySelector('.first-page__button-count').textContent = data;
+      })
+      .catch(err => console.log(err));
   });
   window.isGameOver = false;
   document.querySelector('.final-page__restart').addEventListener('click', () => {

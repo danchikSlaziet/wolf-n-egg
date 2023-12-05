@@ -139,14 +139,21 @@ HTMLredraw.prototype.updateLossCount = function (data) {
 };
 
 HTMLredraw.prototype.gameOver = function () {
-  window.api.postTries(window.userChatId)
+  document.querySelector('.final-page').classList.remove('final-page_disabled');
+  window.api.getRating()
     .then((data) => {
       console.log(data);
-      document.querySelector('.final-page__button-count').textContent = data;
-      document.querySelector('.first-page__button-count').textContent = data;
+      data.forEach((elem, index) => {
+        document.querySelector('.rating-page__rating').innerHTML += `
+        <li class="rating-page__user">
+          <span class="rating-page__number">${index + 1}</span>
+          <span class="rating-page__name">${data.rating?.first_name} ${data.rating?.last_name}</span>
+          <span class="rating-page__count">${data.score}</span>
+        </li>
+        `
+      });
     })
     .catch(err => console.log(err));
-  document.querySelector('.final-page').classList.remove('final-page_disabled');
 
   async function sendMessage(text) {
     // Формируем объект FormData для отправки текстового сообщения

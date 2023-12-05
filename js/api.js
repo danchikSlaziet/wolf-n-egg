@@ -66,8 +66,8 @@ class Api {
     return this._getFetch(url, options);
   }
 
-  getNumber(id) {
-    const url = this._thirdUrl + `?id=${id}`;
+  getRating() {
+    const url = this._fourthUrl;
     const options = {
       method: 'GET',
       mode: 'cors',
