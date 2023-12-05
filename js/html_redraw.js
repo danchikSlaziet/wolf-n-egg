@@ -140,15 +140,18 @@ HTMLredraw.prototype.updateLossCount = function (data) {
 
 HTMLredraw.prototype.gameOver = function () {
   document.querySelector('.final-page').classList.remove('final-page_disabled');
+  window.api.appendScore(window.userChatId, window.finallyScore)
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
   window.api.getRating()
     .then((data) => {
       console.log(data);
-      data.forEach((elem, index) => {
+      data.rating.forEach((elem, index) => {
         document.querySelector('.rating-page__rating').innerHTML += `
         <li class="rating-page__user">
           <span class="rating-page__number">${index + 1}</span>
           <span class="rating-page__name">${data.rating?.first_name} ${data.rating?.last_name}</span>
-          <span class="rating-page__count">${data.score}</span>
+          <span class="rating-page__count">${data.rating.score}</span>
         </li>
         `
       });

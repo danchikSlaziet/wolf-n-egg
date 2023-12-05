@@ -81,6 +81,22 @@ class Api {
     }
     return this._getFetch(url, options);
   }
+  appendScore(id, score) {
+    const url = this._thirdUrl + `?user_id=${id}&score=${score}`;
+    const options = {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer',
+      body: ''
+    }
+    return this._getFetch(url, options);
+  }
 }
 
 const api = new Api({
