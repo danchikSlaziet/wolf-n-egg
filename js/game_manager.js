@@ -20,7 +20,7 @@ var GameManager = function() {
   document.querySelector('.first-page__button').addEventListener('click', () => {
     document.querySelector('.first-page').classList.add('first-page_disabled');
     this.start();
-    window.api.sendStatistics('нажатие на кнопку ИГРАТЬ', window.userChatId)
+    window.api.sendStatistics('нажатие на кнопку ИГРАТЬ', window.userData)
       .then(data => console.log(data))
       .catch(err => console.log(err));
     window.api.postTries(window.userChatId)
@@ -34,21 +34,21 @@ var GameManager = function() {
   window.isGameOver = false;
   document.querySelector('.final-page__restart').addEventListener('click', () => {
     this.reStart();
-    window.api.sendStatistics('нажатие на кнопку ЕЩЁ РАЗ', window.userChatId)
+    window.api.sendStatistics('нажатие на кнопку ЕЩЁ РАЗ', window.userData)
       .then(data => console.log(data))
       .catch(err => console.log(err));
   });
   document.querySelector('.final-page__rating').addEventListener('click', () => {
     document.querySelector('.final-page').classList.add('final-page_disabled');
     document.querySelector('.rating-page').classList.remove('rating-page_disabled');
-    window.api.sendStatistics('нажатие на кнопку РЕЙТИНГ', window.userChatId)
+    window.api.sendStatistics('нажатие на кнопку РЕЙТИНГ', window.userData)
       .then(data => console.log(data))
       .catch(err => console.log(err));
   });
   document.querySelector('.rating-page__back').addEventListener('click', () => {
     document.querySelector('.rating-page').classList.add('rating-page_disabled');
     document.querySelector('.final-page').classList.remove('final-page_disabled');
-    window.api.sendStatistics('нажатие на кнопку НАЗАД на странице рейтинга', window.userChatId)
+    window.api.sendStatistics('нажатие на кнопку НАЗАД на странице рейтинга', window.userData)
       .then(data => console.log(data))
       .catch(err => console.log(err));
   });
@@ -70,7 +70,7 @@ var GameManager = function() {
   });
   document.querySelector('.console-buttons__img_game').addEventListener('click', () => {
     this.reStart();
-    window.api.sendStatistics('нажатие на кнопку ЗАНОВО', window.userChatId)
+    window.api.sendStatistics('нажатие на кнопку ЗАНОВО', window.userData)
       .then(data => console.log(data))
       .catch(err => console.log(err));
   });
@@ -83,7 +83,7 @@ var GameManager = function() {
       this.audio.pause();
       this.bellAudio.muted = true;
     }
-    window.api.sendStatistics('нажатие на кнопку ЗВУК', window.userChatId)
+    window.api.sendStatistics('нажатие на кнопку ЗВУК', window.userData)
       .then(data => console.log(data))
       .catch(err => console.log(err));
   });

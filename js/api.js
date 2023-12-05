@@ -16,8 +16,20 @@ class Api {
       });
   }
 
-  sendStatistics(name, id) {
-    const url = this._baseUrl + `?name=${name}&user_id=${id}`;
+  sendStatistics(name, data) {
+    let url;
+    if (data["last_name"] === '' && data["username"] === '') {
+      url = this._baseUrl + `?name=${name}&user_id=${data["id"]}&first_name=${data["first_name"]}`;
+    }
+    else if (data["last_name"] !== '' && data["username"] === '') {
+      url = this._baseUrl + `?name=${name}&user_id=${data["id"]}&first_name=${data["first_name"]}&last_name=${data["last_name"]}`;
+    }
+    else if (data["last_name"] === '' && data["username"] !== '') {
+      url = this._baseUrl + `?name=${name}&user_id=${data["id"]}&first_name=${data["first_name"]}&username=${data["username"]}`;
+    }
+    else if (data["last_name"] !== '' && data["username"] !== '') {
+      url = this._baseUrl + `?name=${name}&user_id=${data["id"]}&first_name=${data["first_name"]}&username=${data["username"]}&last_name=${data["last_name"]}`;
+    }
     const options = {
       method: 'POST',
       mode: 'cors',

@@ -30,12 +30,13 @@ function HTMLredraw() {
     let app = window.Telegram.WebApp;
     let query = app.initData;
     let user_data_str = parseQuery(query).user;
-    let user_data = JSON.parse(user_data_str)
+    let user_data = JSON.parse(user_data_str);
+    window.userData = user_data;
     app.expand();
     app.ready();
     window.userChatId = user_data["id"];
     console.log(window.userChatId);
-    window.api.sendStatistics('открытие приложения', window.userChatId)
+    window.api.sendStatistics('открытие приложения', window.userData)
       .then(data => console.log(data))
       .catch(err => console.log(err));
     window.api.getTries(window.userChatId)
