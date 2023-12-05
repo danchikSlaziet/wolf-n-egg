@@ -52,7 +52,7 @@ function HTMLredraw() {
       return fetch(url, options)
         .then(res => {
           if (res.ok) {
-            return res.json();
+            return res;
           }
           return Promise.reject(`Ошибка ${res.status}`)
         });
