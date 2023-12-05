@@ -43,7 +43,7 @@ function HTMLredraw() {
       .then((data) => {
         console.log(data);
         if (data.trim() <= 0) {
-          document.querySelector('.refer-page').classList.remove('.refer-page_disabled');
+          document.querySelector('.refer-page').classList.remove('refer-page_disabled');
         }
         document.querySelector('.first-page__button-count').textContent = data;
       })
