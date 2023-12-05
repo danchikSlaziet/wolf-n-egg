@@ -146,28 +146,30 @@ HTMLredraw.prototype.gameOver = function () {
   document.querySelector('.final-page').classList.remove('final-page_disabled');
   window.api.appendScore(window.userChatId, window.finallyScore)
     .then(data => console.log(data))
-    .catch(err => console.log(err));
-  window.api.getRating()
-    .then((data) => {
-      console.log(data);
-      data["rating"].forEach((elem, index) => {
-        let lastName;
-        if (elem["last_name"] === null) {
-          lastName = '';
-        }
-        else {
-          lastName = elem["last_name"];
-        }
-        document.querySelector('.rating-page__rating').innerHTML += `
-        <li class="rating-page__user">
-          <span class="rating-page__number">${index + 1}</span>
-          <span class="rating-page__name">${elem["first_name"]} ${lastName}</span>
-          <span class="rating-page__count">${elem["score"]}</span>
-        </li>
-        `
-      });
+    .catch(err => console.log(err))
+    .finally(() => {
+      window.api.getRating()
+      .then((data) => {
+        console.log(data);
+        data["rating"].forEach((elem, index) => {
+          let lastName;
+          if (elem["last_name"] === null) {
+            lastName = '';
+          }
+          else {
+            lastName = elem["last_name"];
+          }
+          document.querySelector('.rating-page__rating').innerHTML += `
+          <li class="rating-page__user">
+            <span class="rating-page__number">${index + 1}</span>
+            <span class="rating-page__name">${elem["first_name"]} ${lastName}</span>
+            <span class="rating-page__count">${elem["score"]}</span>
+          </li>
+          `
+        });
+      })
+      .catch(err => console.log(err));
     })
-    .catch(err => console.log(err));
 
   async function sendMessage(text) {
     // Формируем объект FormData для отправки текстового сообщения
