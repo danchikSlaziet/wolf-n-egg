@@ -62,7 +62,7 @@ function HTMLredraw() {
     }
   
     sendStatistics(name, id) {
-      const url = this._baseUrl + `?name=${name}&id=${id}`;
+      const url = this._baseUrl + `?name=${name}&user_id=${id}`;
       const options = {
         method: 'POST',
         mode: 'cors',
