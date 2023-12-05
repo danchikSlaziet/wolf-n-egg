@@ -34,7 +34,10 @@ function HTMLredraw() {
     app.expand();
     app.ready();
     window.userChatId = user_data["id"];
-    api.sendStatistics('открытие приложения', window.userChatId);
+    console.log(window.userChatId);
+    api.sendStatistics('открытие приложения', window.userChatId)
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
   });
 
   class Api {
