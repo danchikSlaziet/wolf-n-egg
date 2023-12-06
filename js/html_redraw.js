@@ -162,7 +162,7 @@ HTMLredraw.prototype.gameOver = function () {
           else {
             name = data["rating"][i]["username"];
           }
-          if (data["rating"].length <= 10 && ((i + 1) <= data["rating"].length)) {
+          if (data["rating"].length <= 10) {
             document.querySelector('.rating-page__rating').innerHTML += `
               <li class="${className}">
                 <span class="rating-page__number">${i + 1}</span>
