@@ -151,21 +151,67 @@ HTMLredraw.prototype.gameOver = function () {
       window.api.getRating()
       .then((data) => {
         console.log(data);
+        let yourselfPosition = data["rating"].findIndex(elem => elem["id"] == window.userChatId) + 1;
         data["rating"].forEach((elem, index) => {
-          let lastName;
-          if (elem["last_name"] === null) {
-            lastName = '';
+          while (index <= 9) {
+            let className = index + 1 == yourselfPosition ? 'rating-page__user rating-page__user_yourself' : 'rating-page__user';
+            let name;
+            if (elem["username"] === null) {
+              name = elem["id"];
+            }
+            else {
+              name = elem["username"];
+            }
+
+            if (data["rating"].length <= 10) {
+
+              document.querySelector('.rating-page__rating').innerHTML += `
+                <li class="${className}">
+                  <span class="rating-page__number">${index + 1}</span>
+                  <span class="rating-page__name">${name}</span>
+                  <span class="rating-page__count">${elem["score"]}</span>
+                </li>
+                `;
+            }
+            else {
+              if (yourselfPosition <= 10) {
+                document.querySelector('.rating-page__rating').innerHTML += `
+                  <li class="${className}">
+                    <span class="rating-page__number">${index + 1}</span>
+                    <span class="rating-page__name">${name}</span>
+                    <span class="rating-page__count">${elem["score"]}</span>
+                  </li>
+                  `;
+              }
+              else {
+                if (index < 9) {
+                  document.querySelector('.rating-page__rating').innerHTML += `
+                  <li class="rating-page__user">
+                    <span class="rating-page__number">${index + 1}</span>
+                    <span class="rating-page__name">${name}</span>
+                    <span class="rating-page__count">${elem["score"]}</span>
+                  </li>
+                  `;
+                }
+                else if (index == 9) {
+                  document.querySelector('.rating-page__rating').innerHTML += `
+                  <li class="rating-page__user">
+                    <span class="rating-page__number">${index + 1}</span>
+                    <span class="rating-page__name">${name}</span>
+                    <span class="rating-page__count">${elem["score"]}</span>
+                  </li>
+                  `;
+                  document.querySelector('.rating-page__rating').innerHTML += `
+                  <li class="rating-page__user rating-page__user_yourself">
+                    <span class="rating-page__number">${yourselfPosition}</span>
+                    <span class="rating-page__name">${name}</span>
+                    <span class="rating-page__count">${elem["score"]}</span>
+                  </li>
+                  `;
+                }
+              }
+            }
           }
-          else {
-            lastName = elem["last_name"];
-          }
-          document.querySelector('.rating-page__rating').innerHTML += `
-          <li class="rating-page__user">
-            <span class="rating-page__number">${index + 1}</span>
-            <span class="rating-page__name">${elem["first_name"]} ${lastName}</span>
-            <span class="rating-page__count">${elem["score"]}</span>
-          </li>
-          `
         });
       })
       .catch(err => console.log(err));

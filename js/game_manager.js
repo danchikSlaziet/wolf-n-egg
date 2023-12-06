@@ -54,10 +54,10 @@ var GameManager = function() {
   });
   document.querySelectorAll('.console-buttons__img').forEach((button) => {
     button.addEventListener('touchstart', () => {
-      button.src = './img/button-ellipse-active.png';
+      button.style = 'background-image: url(./img/button-ellipse-active.png';
     });
     button.addEventListener('touchend', () => {
-      button.src = './img/button-ellipse.png';
+      button.style = 'background-image: url(./img/button-ellipse.png';
     });
   });
   document.querySelectorAll('.controls-btn').forEach((button) => {

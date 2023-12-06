@@ -66,6 +66,14 @@ h3 {
   align-items: center;
 }
 
+@media screen and (orientation: landscape) {
+  .page {
+    transform: none;
+    width: min(93vh, 84vw * calc( 238 / 349));
+    height: min(93vh / calc( 349 / 238),39vw);
+  }
+}
+
 .page__audiotrack {
   opacity: 0;
   pointer-events: none;
@@ -83,7 +91,7 @@ h3 {
   top: -16%;
   left: -29%;
   z-index: 10;
-  width: 3em;
+  width: 10%;
 }
 
 .page__console-bg {
@@ -93,6 +101,13 @@ h3 {
   transform: translate(-50%, -50%);
   width: 100vh;
   height: 100vw;
+}
+
+@media screen and (orientation: landscape) {
+  .page__console-bg {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 .page__console-img {
@@ -787,6 +802,12 @@ body.is-mobile {
   text-transform: uppercase;
 }
 
+@media screen and (orientation: landscape) {
+  .first-page__title {
+    font-size: calc(2vw + 2vh);
+  }
+}
+
 .first-page__text {
   color: #FFF;
   text-align: center;
@@ -796,6 +817,12 @@ body.is-mobile {
   line-height: normal;
   text-transform: uppercase;
   max-width: 70%;
+}
+
+@media screen and (orientation: landscape) {
+  .first-page__text {
+    font-size: calc(1.2vw + 1.2vh);
+  }
 }
 
 .first-page__button {
@@ -812,6 +839,12 @@ body.is-mobile {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+@media screen and (orientation: landscape) {
+  .first-page__button {
+    padding: 7px 0;
+  }
 }
 
 .first-page__button-text {
@@ -961,9 +994,19 @@ body.is-mobile {
   line-height: normal;
   text-transform: uppercase;
 }
+@media screen and (orientation: landscape) {
+  .refer-page__button-text {
+    font-size: calc(1vw + 1.2vh);
+  }
+}
 .refer-page__button-img-block {
   position: relative;
   width: 18%;
+}
+@media screen and (orientation: landscape) {
+  .refer-page__button-img-block {
+    width: 14%;
+  }
 }
 .refer-page__button-heart {
   display: block;
@@ -985,6 +1028,11 @@ body.is-mobile {
   line-height: normal;
   text-transform: uppercase;
 }
+@media screen and (orientation: landscape) {
+  .refer-page__button-count {
+    font-size: calc(1.2vw + 1.2vh);
+  }
+}
 .refer-page__title {
   color: #FFF;
   text-align: center;
@@ -996,6 +1044,12 @@ body.is-mobile {
   line-height: normal;
   text-transform: uppercase;
 }
+
+@media screen and (orientation: landscape) {
+  .refer-page__title {
+    font-size: calc(1.9vw + 1.9vh);
+  }
+}
 .refer-page__subtitle {
   color: #FFF;
   text-align: center;
@@ -1005,6 +1059,12 @@ body.is-mobile {
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
+}
+
+@media screen and (orientation: landscape) {
+  .refer-page__subtitle {
+    font-size: calc(1.2vw + 1.2vh);
+  }
 }
 
 .final-page {
@@ -1052,6 +1112,12 @@ body.is-mobile {
   text-transform: uppercase;
 }
 
+@media screen and (orientation: landscape) {
+  .final-page__title {
+    font-size: calc(2vw + 2vh);
+  }
+}
+
 .final-page__restart {
   border: none;
   color: #FFF;
@@ -1079,9 +1145,20 @@ body.is-mobile {
   line-height: normal;
   text-transform: uppercase;
 }
+
+@media screen and (orientation: landscape) {
+  .final-page__button-text {
+    font-size: calc(1.5vw + 1.5vh);
+  }
+}
 .final-page__button-img-block {
   position: relative;
   width: 18%;
+}
+@media screen and (orientation: landscape) {
+  .final-page__button-img-block {
+    width: 14%;
+  }
 }
 .final-page__button-heart {
   display: block;
@@ -1121,6 +1198,13 @@ body.is-mobile {
   margin: 0;
   padding: 11px;
   width: 80%;
+}
+
+@media screen and (orientation: landscape) {
+  .final-page__rating {
+    font-size: calc(1.5vw + 1.5vh);
+    padding: 8px;
+  }
 }
 
 .final-page__shoes {
@@ -1211,6 +1295,11 @@ body.is-mobile {
   padding: 3px 9px 3px 6px;
   box-sizing: border-box;
 }
+
+.rating-page__user_yourself {
+  border: 1px solid #FFF;
+  border-radius: 5px;
+}
 .rating-page__number {
   color: #FFF;
   text-align: center;
@@ -1264,6 +1353,18 @@ body.is-mobile {
 }
 .console-buttons__img {
   width: calc(3vw + 3vh);
+  aspect-ratio: 3 / 1;
+  margin: 0 auto;
+  background-image: url(../img/button-ellipse.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.console-buttons__img_game:active {
+  background-image: url(../img/button-ellipse-active.png);
+}
+.console-buttons__img_sound:active {
+  background-image: url(../img/button-ellipse-active.png);
 }
 .console-buttons__text {
   color: #282723;

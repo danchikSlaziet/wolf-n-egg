@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>Catch the Egg | Ну, погоди!</title>
+  <link rel="preload" href="./img/button-ellipse.png" as="image">
+  <link rel="preload" href="./img/button-ellipse-active.png" as="image">
+  <link rel="preload" href="./img/control-btn.png" as="image">
+  <link rel="preload" href="./img/control-btn-active.png" as="image">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
@@ -14,21 +18,21 @@
   <div class="page">
     <audio src="./audio/soundtrack.mp3" class="page__audiotrack" loop></audio>
     <audio src="./audio/bell-audio.mp3" class="page__bell-track" muted loop></audio>
-    <img class="page__logo" src="./img/tnt.png" alt="tnt тнт телеканал">
-    <div class="console-buttons">
-      <div class="console-button-wrapper">
-        <img class="console-buttons__img console-buttons__img_game" src="./img/button-ellipse.png" alt="button console">
-        <p class="console-buttons__text">Заново</p>
-      </div>
-      <div class="console-button-wrapper">
-        <img class="console-buttons__img console-buttons__img_sound" src="./img/button-ellipse.png" alt="button console">
-        <p class="console-buttons__text">Звук</p>
-      </div>
-    </div>
     <div class="page__console-bg">
       <img class="page__console-img" src="./img/console.png" alt="">
     </div>
     <div id="game-wrap" data-bx="0" data-by="1" data-egg-0="0" data-egg-1="0" data-egg-2="0" data-egg-3="0" data-loss="0">
+      <img class="page__logo" src="./img/tnt.png" alt="tnt тнт телеканал">
+      <div class="console-buttons">
+        <div class="console-button-wrapper">
+          <div class="console-buttons__img console-buttons__img_game"></div>
+          <p class="console-buttons__text">Заново</p>
+        </div>
+        <div class="console-button-wrapper">
+          <div class="console-buttons__img console-buttons__img_sound"></div>
+          <p class="console-buttons__text">Звук</p>
+        </div>
+      </div>
       <div class="first-page">
         <img class="first-page__top-left" src="./img/f-p-top-left.svg" alt="box">
         <img class="first-page__top-right" src="./img/f-p-top-right.svg" alt="box">
