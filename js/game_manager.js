@@ -87,6 +87,17 @@ var GameManager = function() {
       .then(data => console.log(data))
       .catch(err => console.log(err));
   });
+  document.querySelector('.refer-page__button').addEventListener('click', () => {
+    navigator.clipboard.writeText(`https://t.me/test4525623_bot/eggeTest/?start=${window.userChatId}`)
+    .then(() => {
+      console.log("Invite link copied!");
+      document.querySelector('.refer-page__notif').classList.add('refer-page__notif_active');
+      setTimeout(() => {
+        document.querySelector('.refer-page__notif').classList.remove('refer-page__notif_active')
+      }, 3500)
+    })
+    .catch(err => console.error(err))
+  });
 }
 
 // Initial game settings

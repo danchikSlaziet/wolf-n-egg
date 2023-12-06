@@ -895,6 +895,31 @@ body.is-mobile {
   border-radius: 4px;
 }
 
+.refer-page__notif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: visibility .24s, opacity .24s linear;
+}
+.refer-page__notif_active {
+  visibility: visible;
+  opacity: 1;
+}
+.refer-page__notif-text {
+  color: #FFF;
+  opacity: .8;
+  max-width: 90%;
+}
+
 .refer-page_disabled {
   display: none;
 }
