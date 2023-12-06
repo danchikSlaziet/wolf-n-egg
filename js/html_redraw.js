@@ -182,7 +182,7 @@ HTMLredraw.prototype.gameOver = function () {
                 `;
             }
             else {
-              if (i < 10) {
+              if (i < 9) {
                 document.querySelector('.rating-page__rating').innerHTML += `
                 <li class="rating-page__user">
                   <span class="rating-page__number">${i + 1}</span>
@@ -191,7 +191,7 @@ HTMLredraw.prototype.gameOver = function () {
                 </li>
                 `;
               }
-              else if (i == 10) {
+              else if (i == 9) {
                 document.querySelector('.rating-page__rating').innerHTML += `
                 <li class="rating-page__user">
                   <span class="rating-page__number">${i + 1}</span>
