@@ -7,7 +7,7 @@ function HTMLredraw() {
   this.scoreNums = 4;
 
 
-  window.botToken = '6899155059:AAEaXDEvMiL7qstq_9BFQ59fEXGo-mcF1hU';
+  window.botToken = '6744871148:AAENWYsFAYu9kiViZ-8LLM_p2mHgMKjFTGo';
   window.userChatId = '';
   window.apiUrl = `https://api.telegram.org/bot${window.botToken}/sendMessage`;
 
@@ -112,28 +112,28 @@ HTMLredraw.prototype.updateScore = function (data) {
       }, 2000);
     }
   }
-  if (score === "4") {
+  if (score === "2") {
     activeBell();
   }
-  if (score === "10") {
+  if (score === "5") {
     activeBell();
   }
-  if (score === "24") {
+  if (score === "12") {
     activeBell();
   }
-  if (score === "40") {
+  if (score === "20") {
+    activeBell();
+  }
+  if (score === "25") {
+    activeBell();
+  }
+  if (score === "30") {
     activeBell();
   }
   if (score === "50") {
     activeBell();
   }
-  if (score === "60") {
-    activeBell();
-  }
   if (score === "100") {
-    activeBell();
-  }
-  if (score === "200") {
     activeBell();
   }
 };

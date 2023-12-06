@@ -88,7 +88,7 @@ var GameManager = function() {
       .catch(err => console.log(err));
   });
   document.querySelector('.refer-page__button').addEventListener('click', () => {
-    navigator.clipboard.writeText(`https://t.me/test4525623_bot/eggeTest/?start=${window.userChatId}`)
+    navigator.clipboard.writeText(`https://t.me/gena_lovit_testbot?start=${window.userChatId}`)
     .then(() => {
       console.log("Invite link copied!");
       document.querySelector('.refer-page__notif').classList.add('refer-page__notif_active');
@@ -96,7 +96,10 @@ var GameManager = function() {
         document.querySelector('.refer-page__notif').classList.remove('refer-page__notif_active')
       }, 3500)
     })
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));
+    window.api.sendStatistics('нажатие на кнопку ПРИГЛАСИТЬ ДРУЗЕЙ', window.userData)
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
   });
 }
 
@@ -112,7 +115,7 @@ GameManager.prototype.init = function () {
   this.speed = 800;
   // this.maxSpeed = 200;
   this.interval = this.speed*2.5;
-  this.point = 2;
+  this.point = 1;
 
   this.chickens = {};
   this.eggs = {};
@@ -254,28 +257,28 @@ GameManager.prototype.updateScore = function (data) {
       return false;
     }
 
-    if (this.score === 4) {
+    if (this.score === 2) {
       this.upLevel();
     }
-    if (this.score === 10) {
+    if (this.score === 5) {
       this.upLevel();
     }
-    if (this.score === 24) {
+    if (this.score === 12) {
       this.upLevel();
     }
-    if (this.score === 40) {
+    if (this.score === 20) {
+      this.upLevel();
+    }
+    if (this.score === 25) {
+      this.upLevel();
+    }
+    if (this.score === 30) {
       this.upLevel();
     }
     if (this.score === 50) {
       this.upLevel();
     }
-    if (this.score === 60) {
-      this.upLevel();
-    }
     if (this.score === 100) {
-      this.upLevel();
-    }
-    if (this.score === 200) {
       this.upLevel();
     }
   } else {
