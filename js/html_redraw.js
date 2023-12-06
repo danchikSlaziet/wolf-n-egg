@@ -152,8 +152,9 @@ HTMLredraw.prototype.gameOver = function () {
       .then((data) => {
         console.log(data);
         let yourselfPosition = data["rating"].findIndex(elem => elem["id"] == window.userChatId) + 1;
-        for (let i = 1; i++; i <= 10) {
-          let className = i == yourselfPosition ? 'rating-page__user rating-page__user_yourself' : 'rating-page__user';
+        console.log(`yourselfPosition: ${yourselfPosition}`);
+        for (let i = 0; i++; i <= 9) {
+          let className = i + 1 == yourselfPosition ? 'rating-page__user rating-page__user_yourself' : 'rating-page__user';
           let name;
           if (data["rating"][i]["username"] === null) {
             name = data["rating"][i]["id"];
@@ -161,10 +162,10 @@ HTMLredraw.prototype.gameOver = function () {
           else {
             name = data["rating"][i]["username"];
           }
-          if (data["rating"].length <= 10) {
+          if (data["rating"].length <= 10 && ((i + 1) <= data["rating"].length)) {
             document.querySelector('.rating-page__rating').innerHTML += `
               <li class="${className}">
-                <span class="rating-page__number">${i}</span>
+                <span class="rating-page__number">${i + 1}</span>
                 <span class="rating-page__name">${name}</span>
                 <span class="rating-page__count">${data["rating"][i]["score"]}</span>
               </li>
@@ -174,7 +175,7 @@ HTMLredraw.prototype.gameOver = function () {
             if (yourselfPosition <= 10) {
               document.querySelector('.rating-page__rating').innerHTML += `
                 <li class="${className}">
-                  <span class="rating-page__number">${i}</span>
+                  <span class="rating-page__number">${i + 1}</span>
                   <span class="rating-page__name">${name}</span>
                   <span class="rating-page__count">${data["rating"][i]["score"]}</span>
                 </li>
@@ -184,7 +185,7 @@ HTMLredraw.prototype.gameOver = function () {
               if (i < 10) {
                 document.querySelector('.rating-page__rating').innerHTML += `
                 <li class="rating-page__user">
-                  <span class="rating-page__number">${i}</span>
+                  <span class="rating-page__number">${i + 1}</span>
                   <span class="rating-page__name">${name}</span>
                   <span class="rating-page__count">${data["rating"][i]["score"]}</span>
                 </li>
@@ -193,7 +194,7 @@ HTMLredraw.prototype.gameOver = function () {
               else if (i == 10) {
                 document.querySelector('.rating-page__rating').innerHTML += `
                 <li class="rating-page__user">
-                  <span class="rating-page__number">${i}</span>
+                  <span class="rating-page__number">${i + 1}</span>
                   <span class="rating-page__name">${name}</span>
                   <span class="rating-page__count">${data["rating"][i]["score"]}</span>
                 </li>
