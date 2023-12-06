@@ -157,14 +157,14 @@ HTMLredraw.prototype.gameOver = function () {
           let className = i + 1 == yourselfPosition ? 'rating-page__user rating-page__user_yourself' : 'rating-page__user';
           let name;
           if (data["rating"][i]["username"] === null) {
-            name = data["rating"][i]["id"];
+            name = data["rating"][i]["first_name"];
           }
           else {
             name = data["rating"][i]["username"];
           }
           let yourselName;
           if (data["rating"][yourselfPosition - 1]["username"] === null) {
-            yourselName = data["rating"][yourselfPosition - 1]["id"];
+            yourselName = data["rating"][yourselfPosition - 1]["first_name"];
           }
           else {
             yourselName = data["rating"][yourselfPosition - 1]["username"];
@@ -173,7 +173,7 @@ HTMLredraw.prototype.gameOver = function () {
             document.querySelector('.rating-page__rating').innerHTML += `
               <li class="${className}">
                 <span class="rating-page__number">${i + 1}</span>
-                <span class="rating-page__name">${name}</span>
+                <span class="rating-page__name">${name.slice(name.length/2).padStart(name.length, '*')}</span>
                 <span class="rating-page__count">${data["rating"][i]["score"]}</span>
               </li>
               `;
@@ -183,7 +183,7 @@ HTMLredraw.prototype.gameOver = function () {
               document.querySelector('.rating-page__rating').innerHTML += `
                 <li class="${className}">
                   <span class="rating-page__number">${i + 1}</span>
-                  <span class="rating-page__name">${name}</span>
+                  <span class="rating-page__name">${name.slice(name.length/2).padStart(name.length, '*')}</span>
                   <span class="rating-page__count">${data["rating"][i]["score"]}</span>
                 </li>
                 `;
@@ -193,7 +193,7 @@ HTMLredraw.prototype.gameOver = function () {
                 document.querySelector('.rating-page__rating').innerHTML += `
                 <li class="rating-page__user">
                   <span class="rating-page__number">${i + 1}</span>
-                  <span class="rating-page__name">${name}</span>
+                  <span class="rating-page__name">${name.slice(name.length/2).padStart(name.length, '*')}</span>
                   <span class="rating-page__count">${data["rating"][i]["score"]}</span>
                 </li>
                 `;
@@ -202,14 +202,14 @@ HTMLredraw.prototype.gameOver = function () {
                 document.querySelector('.rating-page__rating').innerHTML += `
                 <li class="rating-page__user">
                   <span class="rating-page__number">${i + 1}</span>
-                  <span class="rating-page__name">${name}</span>
+                  <span class="rating-page__name">${name.slice(name.length/2).padStart(name.length, '*')}</span>
                   <span class="rating-page__count">${data["rating"][i]["score"]}</span>
                 </li>
                 `;
                 document.querySelector('.rating-page__rating').innerHTML += `
                 <li class="rating-page__user rating-page__user_yourself">
                   <span class="rating-page__number">${yourselfPosition}</span>
-                  <span class="rating-page__name">${yourselName}</span>
+                  <span class="rating-page__name">${yourselName.slice(yourselName.length/2).padStart(yourselName.length, '*')}</span>
                   <span class="rating-page__count">${data["rating"][yourselfPosition - 1]["score"]}</span>
                 </li>
                 `;
