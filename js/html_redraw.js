@@ -162,6 +162,13 @@ HTMLredraw.prototype.gameOver = function () {
           else {
             name = data["rating"][i]["username"];
           }
+          let yourselName;
+          if (data["rating"][yourselfPosition - 1]["username"] === null) {
+            yourselName = data["rating"][yourselfPosition - 1]["id"];
+          }
+          else {
+            yourselName = data["rating"][yourselfPosition - 1]["username"];
+          }
           if (data["rating"].length <= 10 && ((i + 1) <= data["rating"].length)) {
             document.querySelector('.rating-page__rating').innerHTML += `
               <li class="${className}">
@@ -202,8 +209,8 @@ HTMLredraw.prototype.gameOver = function () {
                 document.querySelector('.rating-page__rating').innerHTML += `
                 <li class="rating-page__user rating-page__user_yourself">
                   <span class="rating-page__number">${yourselfPosition}</span>
-                  <span class="rating-page__name">${name}</span>
-                  <span class="rating-page__count">${data["rating"][i]["score"]}</span>
+                  <span class="rating-page__name">${yourselName}</span>
+                  <span class="rating-page__count">${data["rating"][yourselfPosition - 1]["score"]}</span>
                 </li>
                 `;
               }
