@@ -7,7 +7,7 @@ function HTMLredraw() {
   this.scoreNums = 4;
 
 
-  window.botToken = '6744871148:AAENWYsFAYu9kiViZ-8LLM_p2mHgMKjFTGo';
+  window.botToken = '6957221719:AAE7LqjBy8_vRw6Z-pLmg8e6-fJii2XSybQ';
   window.userChatId = '';
   window.apiUrl = `https://api.telegram.org/bot${window.botToken}/sendMessage`;
 

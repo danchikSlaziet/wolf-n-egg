@@ -88,7 +88,7 @@ var GameManager = function() {
       .catch(err => console.log(err));
   });
   document.querySelector('.refer-page__button').addEventListener('click', () => {
-    navigator.clipboard.writeText(`https://t.me/gena_lovit_testbot?start=${window.userChatId}`)
+    navigator.clipboard.writeText(`https://t.me/TNT_GameBot?start=${window.userChatId}`)
     .then(() => {
       console.log("Invite link copied!");
       document.querySelector('.refer-page__notif').classList.add('refer-page__notif_active');
