@@ -6,6 +6,7 @@ function HTMLredraw() {
   this.startButton = document.querySelector('.first-page__button');
   this.scoreNums = 4;
 
+  window.isFirst;
 
   window.botToken = '6957221719:AAE7LqjBy8_vRw6Z-pLmg8e6-fJii2XSybQ';
   window.userChatId = '';
@@ -37,7 +38,15 @@ function HTMLredraw() {
     window.userChatId = user_data["id"];
     console.log(window.userChatId);
     window.api.sendStatistics('открытие приложения/переход на начальный экран', window.userData)
-      .then(data => console.log(data))
+      .then((data) => {
+        if (data === 'Новый') {
+          window.isFirst = true;
+        }
+        else if (data === 'Старый') {
+          window.isFirst = false;
+        }
+        console.log(data);
+      })
       .catch(err => console.log(err));
     window.api.getTries(window.userChatId)
       .then((data) => {
@@ -250,7 +259,9 @@ HTMLredraw.prototype.gameOver = function () {
       console.error('Ошибка:', error);
     }
   }
-  sendMessage(`Поздравляем!🎉🎉🎉 Твой результат: ${window.finallyScore} 👠\n\nИграй каждый день, копи очки и попадай в самый верх рейтинга! ТОП-200 лучших игроков ждут культовые футболки из сериала😏`);
+  if (window.isFirst) {
+    sendMessage(`Играй каждый день, копи очки и попадай в самый верх рейтинга! ТОП-200 лучших игроков ждут культовые футболки из сериала😏`);
+  }
 };
 
 HTMLredraw.prototype.gameWin = function () {
