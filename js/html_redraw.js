@@ -157,6 +157,7 @@ HTMLredraw.prototype.gameOver = function () {
     .then(data => console.log(data))
     .catch(err => console.log(err))
     .finally(() => {
+      document.querySelector('.rating-page__rating').innerHTML = '';
       window.api.getRating()
       .then((data) => {
         console.log(data);

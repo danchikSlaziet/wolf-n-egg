@@ -53,6 +53,7 @@ var GameManager = function() {
       .catch(err => console.log(err));
   });
   document.querySelector('.console-buttons__img_rating').addEventListener('click', () => {
+    document.querySelector('.rating-page__rating').innerHTML = '';
     document.querySelector('.rating-page').classList.remove('rating-page_disabled');
     window.api.getRating()
       .then((data) => {
