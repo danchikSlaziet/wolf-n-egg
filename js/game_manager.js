@@ -39,7 +39,7 @@ var GameManager = function() {
       .catch(err => console.log(err));
   });
   document.querySelector('.final-page__rating').addEventListener('click', () => {
-    document.querySelector('.final-page').classList.add('final-page_disabled');
+    // document.querySelector('.final-page').classList.add('final-page_disabled');
     document.querySelector('.rating-page').classList.remove('rating-page_disabled');
     window.api.sendStatistics('нажатие на кнопку РЕЙТИНГ', window.userData)
       .then(data => console.log(data))
@@ -47,8 +47,86 @@ var GameManager = function() {
   });
   document.querySelector('.rating-page__back').addEventListener('click', () => {
     document.querySelector('.rating-page').classList.add('rating-page_disabled');
-    document.querySelector('.final-page').classList.remove('final-page_disabled');
+    // document.querySelector('.final-page').classList.remove('final-page_disabled');
     window.api.sendStatistics('нажатие на кнопку НАЗАД на странице рейтинга', window.userData)
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+  });
+  document.querySelector('.console-buttons__img_rating').addEventListener('click', () => {
+    document.querySelector('.rating-page').classList.remove('rating-page_disabled');
+    window.api.getRating()
+      .then((data) => {
+        console.log(data);
+        let yourselfPosition = data["rating"].findIndex(elem => elem["id"] == window.userChatId) + 1;
+        console.log(`yourselfPosition: ${yourselfPosition}`);
+        for (let i = 0; i <= 9; i++) {
+          let className = i + 1 == yourselfPosition ? 'rating-page__user rating-page__user_yourself' : 'rating-page__user';
+          let name;
+          if (data["rating"][i]["username"] === null) {
+            name = data["rating"][i]["first_name"];
+          }
+          else {
+            name = data["rating"][i]["username"];
+          }
+          let yourselName;
+          if (data["rating"][yourselfPosition - 1]["username"] === null) {
+            yourselName = data["rating"][yourselfPosition - 1]["first_name"];
+          }
+          else {
+            yourselName = data["rating"][yourselfPosition - 1]["username"];
+          }
+          if (data["rating"].length <= 10 && ((i + 1) <= data["rating"].length)) {
+            document.querySelector('.rating-page__rating').innerHTML += `
+              <li class="${className}">
+                <span class="rating-page__number">${i + 1}</span>
+                <span class="rating-page__name">${name.slice(name.length/2).padStart(name.length, '*')}</span>
+                <span class="rating-page__count">${data["rating"][i]["score"]}</span>
+              </li>
+              `;
+          }
+          else {
+            if (yourselfPosition <= 10) {
+              document.querySelector('.rating-page__rating').innerHTML += `
+                <li class="${className}">
+                  <span class="rating-page__number">${i + 1}</span>
+                  <span class="rating-page__name">${name.slice(name.length/2).padStart(name.length, '*')}</span>
+                  <span class="rating-page__count">${data["rating"][i]["score"]}</span>
+                </li>
+                `;
+            }
+            else {
+              if (i < 9) {
+                document.querySelector('.rating-page__rating').innerHTML += `
+                <li class="rating-page__user">
+                  <span class="rating-page__number">${i + 1}</span>
+                  <span class="rating-page__name">${name.slice(name.length/2).padStart(name.length, '*')}</span>
+                  <span class="rating-page__count">${data["rating"][i]["score"]}</span>
+                </li>
+                `;
+              }
+              else if (i == 9) {
+                document.querySelector('.rating-page__rating').innerHTML += `
+                <li class="rating-page__user">
+                  <span class="rating-page__number">${i + 1}</span>
+                  <span class="rating-page__name">${name.slice(name.length/2).padStart(name.length, '*')}</span>
+                  <span class="rating-page__count">${data["rating"][i]["score"]}</span>
+                </li>
+                `;
+                document.querySelector('.rating-page__rating').innerHTML += `
+                <li class="rating-page__user rating-page__user_yourself">
+                  <span class="rating-page__number">${yourselfPosition}</span>
+                  <span class="rating-page__name">${yourselName.slice(yourselName.length/2).padStart(yourselName.length, '*')}</span>
+                  <span class="rating-page__count">${data["rating"][yourselfPosition - 1]["score"]}</span>
+                </li>
+                `;
+              }
+            }
+          }
+
+        }
+      })
+      .catch(err => console.log(err));
+    window.api.sendStatistics('нажатие на кнопку РЕЙТИНГ на консоли (верхний правый угол)', window.userData)
       .then(data => console.log(data))
       .catch(err => console.log(err));
   });
